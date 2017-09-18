@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Ard_WIFI</string>
+    <string name="app_name">ARDUINO WIFI</string>
+    <string name="bt_on"> WIFI ON </string>
+    <string name="bt_off"> WIFI OFF </string>
+    <string name="bt_sair"> SAIR </string>
+    <string name="txt"> WIFI ARDUINO </string>
 </resources>

@@ -1,18 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
     tools:context="com.sauca.ard_wifi.Main">
 
+    <Button
+        android:id="@+id/BT_WFOn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:onClick="onClick"
+        android:text="@string/bt_on"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="98dp" />
+
+    <Button
+        android:id="@+id/BT_WFOff"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:onClick="onClick"
+        android:text="@string/bt_off"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="37dp" />
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/T_Tex"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_weight="1"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/txt"
+        android:textAlignment="center"
+        android:textSize="75sp"
+        android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.299"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.701" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/BT_Sair"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:text="@string/bt_sair"
+        tools:layout_editor_absoluteX="264dp"
+        tools:layout_editor_absoluteY="447dp" />
+
+</LinearLayout>
