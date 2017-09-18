@@ -29,7 +29,7 @@
     <TextView
         android:id="@+id/T_Tex"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/txt"
@@ -48,7 +48,7 @@
         android:id="@+id/BT_Sair"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:text="@string/bt_sair"
         tools:layout_editor_absoluteX="264dp"
         tools:layout_editor_absoluteY="447dp" />

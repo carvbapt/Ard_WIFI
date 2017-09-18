@@ -4,4 +4,6 @@
     <string name="bt_off"> WIFI OFF </string>
     <string name="bt_sair"> SAIR </string>
     <string name="txt"> WIFI ARDUINO </string>
+    <string name="txt_on">WIFI Turned ON</string>
+    <string name="txt_off">WIFI Turned OFF</string>
 </resources>
