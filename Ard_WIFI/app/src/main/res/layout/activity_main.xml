@@ -7,24 +7,29 @@
     android:orientation="vertical"
     tools:context="com.sauca.ard_wifi.Main">
 
-    <Button
-        android:id="@+id/BT_WFOn"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:onClick="onClick"
-        android:text="@string/bt_on"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="98dp" />
 
-    <Button
-        android:id="@+id/BT_WFOff"
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/STC_WIFI"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="20dp"
+        android:checked="false"
         android:onClick="onClick"
+        android:paddingEnd="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingStart="20dp"
+        android:scaleY="1.5"
         android:text="@string/bt_off"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="37dp" />
+        android:textOff="@string/Off"
+        android:textOn="@string/On"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:theme="@style/MySwitch"
+        app:switchMinWidth="70dp" />
 
     <TextView
         android:id="@+id/T_Tex"

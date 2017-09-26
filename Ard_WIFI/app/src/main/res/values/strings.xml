@@ -6,4 +6,8 @@
     <string name="txt"> WIFI ARDUINO </string>
     <string name="txt_on">WIFI Turned ON</string>
     <string name="txt_off">WIFI Turned OFF</string>
+    <string name="On">On</string>
+    <string name="Off">Off</string>
+    <string name="Logo">Logo</string>
+
 </resources>

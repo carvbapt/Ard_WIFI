@@ -5,17 +5,18 @@ import android.net.wifi.WifiManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class Main extends AppCompatActivity implements View.OnClickListener {
+public class Main extends AppCompatActivity implements View.OnClickListener{
 
-    Button btOn,btOff,btSair;
+    Button btSair;
+    SwitchCompat stWF;
     TextView txt;
-    ImageView iv_wifi;
     WifiManager wf;
 
     @Override
@@ -23,39 +24,35 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.action_bar);
+        this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        this.getSupportActionBar().setCustomView(R.layout.action_bar);
 
-        btOn=(Button)findViewById(R.id.BT_WFOn);
-        btOff=(Button)findViewById(R.id.BT_WFOff);
         btSair=(Button)findViewById(R.id.BT_Sair);
+        stWF=(SwitchCompat) findViewById(R.id.STC_WIFI);
 
         txt=(TextView) findViewById(R.id.T_Tex);
-        iv_wifi=(ImageView)findViewById(R.id.wifi_image);
 
-        btOn.setOnClickListener(this);
-        btOff.setOnClickListener(this);
         btSair.setOnClickListener(this);
-
+        stWF.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
 
-        if(v==findViewById( R.id.BT_WFOn)){
-            wf=(WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-            wf.setWifiEnabled(true);
-            txt.setText("WIFI Turned ON");
-            iv_wifi.setImageResource(R.drawable.bt_green);
-            //txt.setVisibility(View.VISIBLE);
-            //Toast.makeText(this,"Hello ",Toast.LENGTH_SHORT).show();
-        }else if(v==findViewById(R.id.BT_WFOff)){
-            wf=(WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-            wf.setWifiEnabled(false);
-            txt.setText("WIFI Turned OFF");
-            iv_wifi.setImageResource(R.drawable.bt_red);
-            //txt.setVisibility(View.INVISIBLE);
-            //Toast.makeText(this,"Goodbye ",Toast.LENGTH_SHORT).show();
+        wf = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+       if(v==findViewById(R.id.STC_WIFI)){
+            if(stWF.isChecked()) {
+                wf.setWifiEnabled(true);
+                //txt.setText(R.string.txt_on);
+                stWF.setText(R.string.bt_on);
+                //Toast.makeText(this, stWF.getTextOn().toString(),Toast.LENGTH_LONG).show();
+            }else{
+                wf.setWifiEnabled(false);
+                //txt.setText(R.string.txt_off);
+                stWF.setText(R.string.bt_off);
+                //Toast.makeText(this, stWF.getTextOff().toString(),Toast.LENGTH_LONG).show();
+            }
         }else if(v==findViewById(R.id.BT_Sair)){
             moveTaskToBack(true);
             finish();
