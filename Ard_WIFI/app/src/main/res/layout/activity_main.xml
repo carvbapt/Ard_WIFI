@@ -36,7 +36,7 @@
     <RelativeLayout
         android:id="@+id/RL_Frame"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="0dp"
         android:layout_weight="0.80"
         android:orientation="vertical"
         android:visibility="visible">
@@ -49,8 +49,8 @@
             android:layout_alignParentTop="false"
             android:layout_centerHorizontal="false"
             android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:checked="false"
-            android:elevation="10dp"
             android:onClick="onClick"
             android:text="@string/L1_Off"
             android:textAlignment="center"
@@ -62,14 +62,17 @@
             android:theme="@style/AppTheme" />
 
         <ImageView
+            android:contentDescription="@string/bt_off"
             android:id="@+id/IV_Led1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="false"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
             android:layout_alignParentRight="true"
             android:layout_marginRight="30dp"
+            android:layout_marginEnd="30dp"
             app:srcCompat="@drawable/bt_red" />
 
         <TextView
@@ -77,11 +80,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/IV_Led1"
-            android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/txt"
             android:textAlignment="center"
-            android:textSize="75sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
