@@ -9,7 +9,13 @@
     <string name="On">On</string>
     <string name="Off">Off</string>
     <string name="Logo">Logo</string>
+    <string name="Leds">Teste LED´s</string>
     <string name="L1_On">LED 1 ON </string>
     <string name="L1_Off">LED 1 OFF </string>
+    <string name="Scan">"Start Scan &#46;&#46;&#46;	&#09; "</string>
+    <string name="Sssid">"WIFIARD"</string>
+    <string name="Conect">"WIFI: WIFIARD - Connected</string>
+    <string name="NConect">"WIFI: WIFIARD - Not Connected"</string>
+    <string name="NConect2">"WIFI: WIFIARD - Not Found"</string>
 
 </resources>
