@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sauca.ard_wifi.Leds"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/RL_Frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ToggleButton
+            android:id="@+id/TB_Led1"
+            style="@style/AppTheme"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="false"
+            android:layout_centerHorizontal="false"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:checked="false"
+            android:onClick="onClick"
+            android:text="@string/L1_Off"
+            android:textAlignment="center"
+            android:textColorLink="@android:color/transparent"
+            android:textOff="@string/L1_Off"
+            android:textOn="@string/L1_On"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:theme="@style/AppTheme" />
+
+        <ImageView
+            android:id="@+id/IV_Led1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="false"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:contentDescription="@string/bt_off"
+            app:srcCompat="@mipmap/ic_red" />
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/IB_Back"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@string/bt_Back"
+        android:onClick="onClick"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+
+</LinearLayout>

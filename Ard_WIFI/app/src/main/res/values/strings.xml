@@ -2,8 +2,8 @@
     <string name="app_name">ARDUINO WIFI</string>
     <string name="bt_on"> WIFI ON </string>
     <string name="bt_off"> WIFI OFF </string>
+    <string name="bt_Back">Voltar</string>
     <string name="bt_sair"> SAIR </string>
-    <string name="txt"> WIFI ARDUINO </string>
     <string name="txt_on">WIFI Turned ON</string>
     <string name="txt_off">WIFI Turned OFF</string>
     <string name="On">On</string>
@@ -11,14 +11,19 @@
     <string name="Yes">YES</string>
     <string name="No">NO</string>
     <string name="Logo">Logo</string>
+    <string name="Conf">Configs</string>
     <string name="Leds">Teste LED´s</string>
     <string name="L1_On">LED 1 ON </string>
     <string name="L1_Off">LED 1 OFF </string>
     <string name="Scan">"Start Scan &#46;&#46;&#46;	&#09; "</string>
-    <string name="Sssid">"WIFIARD"</string>
+    <string name="Ssid"> ARDUINO SSID </string>
+    <string name="SsidAlterar">Alterar SSID</string>
+    <string name="SsidName">SSID</string>
+    <string name="SsisPass">PASSWORD</string>
+    <string name="SsidDef">"WIFIARD"</string>
     <string name="Conect">"WIFI: WIFIARD - Connected</string>
     <string name="NConect">"WIFI: WIFIARD - Not Connected"</string>
     <string name="NConect2">"WIFI: WIFIARD - Not Found"</string>
-    <string name="txtdialog">Do you realy want to exit ?</string>
+    <string name="txtdialog">Do you really want to exit ?</string>
 
 </resources>
