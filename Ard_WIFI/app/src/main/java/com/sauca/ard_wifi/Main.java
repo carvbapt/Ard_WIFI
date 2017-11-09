@@ -14,8 +14,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -160,12 +160,16 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
         // Setting Dialog Title
         alertDialog.setTitle(getString(R.string.app_name));
-
         // Setting Dialog Message
         alertDialog.setMessage(message);
-
         // Setting Icon to Dialog
         alertDialog.setIcon(R.mipmap.ic_arduino);
+
+        View viewInflated = LayoutInflater.from(this).inflate(R.layout.action_dialog, null);
+        // Set up the input
+        //final EditText input = (EditText) viewInflated.findViewById(R.id.input);
+        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        alertDialog.setView(viewInflated);
 
         // Setting Positive "Yes" Button
         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {

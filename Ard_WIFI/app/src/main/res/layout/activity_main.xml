@@ -44,9 +44,10 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginRight="70dp"
+            android:layout_marginEnd="70dp"
             android:background="@color/LightRed"
-            android:elevation="24dp"
             android:onClick="onClick"
             android:text="@string/Scan"
             android:textColor="@color/White"
@@ -62,8 +63,10 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/ic_conf" />
+            app:srcCompat="@drawable/ic_conf"
+            android:contentDescription="@string/Logo" />
 
     </RelativeLayout>
 
@@ -128,7 +131,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
             android:contentDescription="@string/bt_off"
-            app:srcCompat="@drawable/bt_red" />
+            app:srcCompat="@mipmap/ic_red" />
 
     </RelativeLayout>
 

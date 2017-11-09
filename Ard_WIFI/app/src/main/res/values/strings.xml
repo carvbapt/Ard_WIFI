@@ -8,6 +8,8 @@
     <string name="txt_off">WIFI Turned OFF</string>
     <string name="On">On</string>
     <string name="Off">Off</string>
+    <string name="Yes">YES</string>
+    <string name="No">NO</string>
     <string name="Logo">Logo</string>
     <string name="Leds">Teste LED´s</string>
     <string name="L1_On">LED 1 ON </string>
@@ -17,5 +19,6 @@
     <string name="Conect">"WIFI: WIFIARD - Connected</string>
     <string name="NConect">"WIFI: WIFIARD - Not Connected"</string>
     <string name="NConect2">"WIFI: WIFIARD - Not Found"</string>
+    <string name="txtdialog">Do you realy want to exit ?</string>
 
 </resources>
