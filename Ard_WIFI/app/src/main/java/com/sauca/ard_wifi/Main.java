@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class Main extends AppCompatActivity implements View.OnClickListener{
 
-    Button btTLeds,btSair;
+    Button btTLeds,btTMotor,btSair;
     ImageButton ibConf;
     SwitchCompat stWF;
     TextView t_text;
@@ -30,6 +30,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
         // Buttons, Images & Text
         btTLeds=(Button)findViewById(R.id.BT_TLeds);
+        btTMotor=(Button)findViewById(R.id.BT_TMotor);
         btSair = (Button) findViewById(R.id.BT_Sair);
         ibConf=(ImageButton)findViewById(R.id.IB_Conf);
         stWF = (SwitchCompat) findViewById(R.id.STC_WIFI);
@@ -40,6 +41,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         stWF.setOnClickListener(this);
         ibConf.setOnClickListener(this);
         btTLeds.setOnClickListener(this);
+        btTMotor.setOnClickListener(this);
         btSair.setOnClickListener(this);
     }
 
@@ -59,6 +61,8 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
             startActivity(new Intent(this,Confi.class));
         }else if(v== findViewById(R.id.BT_TLeds)){
             startActivity(new Intent(this,Leds.class));
+        }else if(v== findViewById(R.id.BT_TMotor)){
+            startActivity(new Intent(this,Motor.class));
         }else if (v == findViewById(R.id.BT_Sair)){
             System.exit(0);
         }

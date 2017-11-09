@@ -9,17 +9,17 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ToggleButton;
 
-public class Leds extends AppCompatActivity implements View.OnClickListener{
+public class Motor extends AppCompatActivity implements View.OnClickListener{
 
     ImageButton ib_back,ib_conf;
 
-    ToggleButton tb_led1;
-    ImageView iv_led1;
+    ToggleButton tb_mot1;
+    ImageView iv_m1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_leds);
+        setContentView(R.layout.activity_motor);
 
         // Action Bar
         if(getSupportActionBar() != null) {
@@ -29,10 +29,10 @@ public class Leds extends AppCompatActivity implements View.OnClickListener{
 
         ib_back=(ImageButton)findViewById(R.id.IB_Back);
         ib_conf=(ImageButton)findViewById(R.id.IB_Conf);
-        tb_led1 = (ToggleButton) findViewById(R.id.TB_Led1);
-        iv_led1 = (ImageView) findViewById(R.id.IV_M1);
+        tb_mot1 = (ToggleButton) findViewById(R.id.TB_Motor1);
+        iv_m1 = (ImageView) findViewById(R.id.IV_M1);
 
-        tb_led1.setOnClickListener(this);
+        tb_mot1.setOnClickListener(this);
         ib_back.setOnClickListener(this);
         ib_conf.setOnClickListener(this);
     }
@@ -43,11 +43,11 @@ public class Leds extends AppCompatActivity implements View.OnClickListener{
             finish();
         }else   if(v== findViewById(R.id.IB_Conf)){
             startActivity(new Intent(this,Confi.class));
-        }else if (v == findViewById(R.id.TB_Led1)) {
-        if (tb_led1.isChecked())
-            iv_led1.setImageResource(R.mipmap.ic_green);
-        else
-            iv_led1.setImageResource(R.mipmap.ic_red);
+        }else if (v == findViewById(R.id.TB_Motor1)) {
+            if (tb_mot1.isChecked())
+                iv_m1.setImageResource(R.mipmap.ic_green);
+            else
+                iv_m1.setImageResource(R.mipmap.ic_red);
         }
     }
 }

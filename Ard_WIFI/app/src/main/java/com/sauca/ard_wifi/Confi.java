@@ -65,7 +65,7 @@ public class Confi extends AppCompatActivity implements View.OnClickListener{
         // Setting Icon to Dialog
         alertDialog.setIcon(R.mipmap.ic_arduino);
 
-        RelativeLayout ad_rlayout = (RelativeLayout) findViewById(R.id.RL_Dialog);
+        RelativeLayout ad_rlayout = (RelativeLayout) findViewById(R.id.CL_Dialog);
         View viewInflated = getLayoutInflater().inflate(R.layout.action_dialog,ad_rlayout,false);
         // Set up the input
         et_ssid = (EditText) viewInflated.findViewById(R.id.ET_SSID);

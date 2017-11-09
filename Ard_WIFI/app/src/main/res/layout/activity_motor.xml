@@ -3,70 +3,65 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/CL_Leds"
+    android:id="@+id/CL_Motor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.sauca.ard_wifi.Leds">
+    tools:context="com.sauca.ard_wifi.Motor"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
 
     <ToggleButton
-        android:id="@+id/TB_Led1"
+        android:id="@+id/TB_Motor1"
         style="@style/AppTheme"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="false"
         android:layout_centerHorizontal="false"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="18dp"
         android:checked="false"
         android:onClick="onClick"
-        android:text="@string/L1_Off"
+        android:text="@string/M1_Off"
         android:textAlignment="center"
         android:textColorLink="@android:color/transparent"
-        android:textOff="@string/L1_Off"
-        android:textOn="@string/L1_On"
+        android:textOff="@string/M1_Off"
+        android:textOn="@string/M1_On"
         android:textSize="24sp"
         android:textStyle="bold"
         android:theme="@style/AppTheme"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/IV_M1"
-        android:layout_width="0dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="false"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
         android:contentDescription="@string/bt_off"
         app:srcCompat="@mipmap/ic_red"
         android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/TB_Led1"
+        app:layout_constraintLeft_toRightOf="@+id/TB_Motor1"
         android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="1.0" />
+        android:layout_marginStart="8dp" />
+
 
     <ImageButton
         android:id="@+id/IB_Back"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:contentDescription="@string/bt_Back"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_revert"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintRight_creator="1" />
-
+        app:srcCompat="@android:drawable/ic_menu_revert" />
 
 </android.support.constraint.ConstraintLayout>

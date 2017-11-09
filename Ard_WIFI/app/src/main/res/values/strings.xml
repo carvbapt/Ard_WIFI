@@ -1,20 +1,23 @@
 <resources>
+    // APP
     <string name="app_name">ARDUINO WIFI</string>
+    <string name="Logo">Logo</string>
     <string name="bt_on"> WIFI ON </string>
     <string name="bt_off"> WIFI OFF </string>
-    <string name="bt_Back">Voltar</string>
     <string name="bt_sair"> SAIR </string>
-    <string name="txt_on">WIFI Turned ON</string>
-    <string name="txt_off">WIFI Turned OFF</string>
+    // <string name="txt_on">WIFI Turned ON</string>
+    // <string name="txt_off">WIFI Turned OFF</string>
+
     <string name="On">On</string>
     <string name="Off">Off</string>
     <string name="Yes">YES</string>
     <string name="No">NO</string>
-    <string name="Logo">Logo</string>
+
+    // COMUNS
+    <string name="bt_Back">Voltar</string>
+
+    //COMFIGURAÇÃO
     <string name="Conf">Configs</string>
-    <string name="Leds">Teste LED´s</string>
-    <string name="L1_On">LED 1 ON </string>
-    <string name="L1_Off">LED 1 OFF </string>
     <string name="Scan">"Start Scan &#46;&#46;&#46;	&#09; "</string>
     <string name="Ssid"> ARDUINO SSID </string>
     <string name="SsidAlterar">Alterar SSID</string>
@@ -25,5 +28,15 @@
     <string name="NConect">"WIFI: WIFIARD - Not Connected"</string>
     <string name="NConect2">"WIFI: WIFIARD - Not Found"</string>
     <string name="txtdialog">Do you really want to exit ?</string>
+
+    // LED´S
+    <string name="Leds">Teste LED´s</string>
+    <string name="L1_On">LED 1 ON </string>
+    <string name="L1_Off">LED 1 OFF </string>
+
+    // MOTOR´S
+    <string name="Motor">Teste Motor</string>
+    <string name="M1_On">Motor 1 ON</string>
+    <string name="M1_Off">Motor 1 OFF</string>
 
 </resources>
