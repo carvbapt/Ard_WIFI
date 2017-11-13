@@ -24,9 +24,10 @@
     <string name="SsidName">SSID</string>
     <string name="SsisPass">PASSWORD</string>
     <string name="SsidDef">"WIFIARD"</string>
-    <string name="Conect">"WIFI: WIFIARD - Connected</string>
-    <string name="NConect">"WIFI: WIFIARD - Not Connected"</string>
-    <string name="NConect2">"WIFI: WIFIARD - Not Found"</string>
+    <string name="Wifi">"WIFI: "</string>
+    <string name="Conect">" - Connected</string>
+    <string name="NConect">" - Not Connected - "</string>
+    <string name="NConect2">" - Not Found"</string>
     <string name="txtdialog">Do you really want to exit ?</string>
 
     // LED´S

@@ -55,7 +55,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
                 t_text.setText(getText(R.string.Conect));
             } else {
                 stWF.setText(getString(R.string.bt_off));
-                t_text.setText(getText(R.string.NConect));
+                t_text.setText(getText( R.string.NConect));
             }
         }else   if(v== findViewById(R.id.IB_Conf)){
             startActivity(new Intent(this,Confi.class));
