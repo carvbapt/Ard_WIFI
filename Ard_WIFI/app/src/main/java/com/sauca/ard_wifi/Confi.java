@@ -1,13 +1,10 @@
 package com.sauca.ard_wifi;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -30,9 +27,9 @@ public class Confi extends AppCompatActivity implements View.OnClickListener{
     public String str_pass = "123456768";
     public String str;
 
-    WifiManager wf;
-    NetworkInfo wf_Active;
-    ConnectivityManager wf_Conect;
+    public static WifiManager wf;
+    public static NetworkInfo wf_Active;
+    public static ConnectivityManager wf_Conect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,22 +40,6 @@ public class Confi extends AppCompatActivity implements View.OnClickListener{
         if(getSupportActionBar() != null) {
             getSupportActionBar().setCustomView(R.layout.action_bar);
             getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        }
-
-        // WIFI
-        wf = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        wf_Conect = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        // WIFI Permissions
-        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED){
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
-                Toast.makeText(this, "Permission to get BLE location data is required", Toast.LENGTH_SHORT).show();
-            }else{
-                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-            }
-        }else{
-            Toast.makeText(this, "Permissions already granted", Toast.LENGTH_SHORT).show();
         }
 
         ib_back=(ImageButton)findViewById(R.id.IB_Back);
@@ -83,7 +64,7 @@ public class Confi extends AppCompatActivity implements View.OnClickListener{
             str=getString(R.string.Scan) +str_ssid;
             bt_scan.setText(str);
             bt_scan.setBackgroundColor(ContextCompat.getColor(this, R.color.LightRed));
-            chk_WIFI();
+            chk_WIFI("C");
         }
     }
 
@@ -137,13 +118,24 @@ public class Confi extends AppCompatActivity implements View.OnClickListener{
 
     ///////////////////  WIFI SCAN ///////////////////////////////////////////////////////////
 
-    private void chk_WIFI() {
+    public void chk_WIFI(String act) {
 
         String stg,netw="";
 
+        // WIFI - DISABLED
+        wf = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+        if(wf.getWifiState()== 3) {
+            wf.setWifiEnabled(false);
+        }else
+            wf.setWifiEnabled(true);
+
+        // WIFI
+        wf_Conect = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
         // Connectivity Manager object to check connection
         wf_Active = wf_Conect.getActiveNetworkInfo();
-        wf.getWifiState();
+       // wf.getWifiState();
 
         for(int i = 0; i < wf.getScanResults().size(); i++){
             stg=wf.getScanResults().get(i).toString();
@@ -154,15 +146,24 @@ public class Confi extends AppCompatActivity implements View.OnClickListener{
         }
 
         if(netw.equals(str_ssid)){
-            str=getString(R.string.Wifi) + wf_Active.getExtraInfo() + getString(R.string.Conect);
-            bt_scan.setText(str);
-            bt_scan.setBackgroundColor(ContextCompat.getColor(this, R.color.LightGreen));
-        }else{ // WIFI FOUND AND CONNECTED
-            str=getString(R.string.Wifi) + str_ssid + getString(R.string.NConect2);
-            bt_scan.setText(str);
-            bt_scan.setBackgroundColor(ContextCompat.getColor(this, R.color.LightRed));
+            str=getString(R.string.Wifi) +wf_Active.getExtraInfo() + getString(R.string.Conect);
+            if (act.equals("M"))
+                Toast.makeText(this,str,Toast.LENGTH_SHORT).show();
+               // Main.st=str;
+            else {
+                bt_scan.setText(str);
+                bt_scan.setBackgroundColor(ContextCompat.getColor(this, R.color.LightGreen));
+            }
+        }else { // WIFI FOUND AND CONNECTED
+            str = getString(R.string.Wifi) + str_ssid + getString(R.string.NConect2);
+                if (act.equals("M"))
+                    Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+                    //Main.st=str;
+                else {
+                    bt_scan.setText(str);
+                    bt_scan.setBackgroundColor(ContextCompat.getColor(this, R.color.LightRed));
+                }
         }
-
         //Toast.makeText(this, wf_Active.getExtraInfo(), Toast.LENGTH_SHORT).show();
         //Toast.makeText(this, R.string.Conect, Toast.LENGTH_SHORT).show();*/
     }
