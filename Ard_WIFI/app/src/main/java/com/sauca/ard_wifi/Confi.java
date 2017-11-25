@@ -55,9 +55,9 @@ public class Confi extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        if (v == findViewById(R.id.IB_Back))
+        if (v == findViewById(R.id.IB_Back)) {
             finish();
-        else if(v== findViewById(R.id.BT_Ssid)){
+        }else if(v== findViewById(R.id.BT_Ssid)){
             alertView(getString(R.string.Ssid));
         }else if(v== findViewById(R.id.BT_Scan)){
             //Toast.makeText(this, " Call WIFI", Toast.LENGTH_SHORT).show();

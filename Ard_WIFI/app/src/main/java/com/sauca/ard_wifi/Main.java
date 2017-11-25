@@ -11,18 +11,18 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class Main extends AppCompatActivity implements View.OnClickListener{
 
     Button btTLeds,btTMotor,btSair;
+    ToggleButton tbWF;
     ImageButton ibConf;
-    SwitchCompat stWF;
     TextView t_text;
 
     public static WifiManager wfm;
@@ -54,15 +54,13 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
         // WIFI
         wfm = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        //wfm_info= wfm.getConnectionInfo();
-        wfm_Conect = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
         // Buttons, Images & Text
         btTLeds=(Button)findViewById(R.id.BT_TLeds);
         btTMotor=(Button)findViewById(R.id.BT_TMotor);
         btSair = (Button) findViewById(R.id.BT_Sair);
         ibConf=(ImageButton)findViewById(R.id.IB_Conf);
-        stWF = (SwitchCompat) findViewById(R.id.STC_WIFI);
+        tbWF=(ToggleButton)findViewById(R.id.TB_Wifi);
         t_text=(TextView)findViewById(R.id.T_Tex);
 
         ibConf.setVisibility(View.VISIBLE);
@@ -73,7 +71,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
             chk(getString(R.string.SsidDef),1);
         }
 
-        stWF.setOnClickListener(this);
+        tbWF.setOnClickListener(this);
         ibConf.setOnClickListener(this);
         btTLeds.setOnClickListener(this);
         btTMotor.setOnClickListener(this);
@@ -84,14 +82,17 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
 
         // WIFI
-        if (v == findViewById(R.id.STC_WIFI)) {
-            wfm.setWifiEnabled(true);
-            if (stWF.isChecked()) {
-                // WIFI - DISABLED
+        if (v == findViewById(R.id.TB_Wifi)) {
+            wfm = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+            if (tbWF.isChecked()) {
+                wfm.setWifiEnabled(true);
                 chk("\"SAPA\"",1);
-
             }else {
-                chk("",0);
+                wfm.setWifiEnabled(false);
+                tbWF.setText(getString(R.string.bt_off));
+                tbWF.setBackgroundColor(ContextCompat.getColor(this, R.color.LightRed));
+                tbWF.setChecked(false);
+                t_text.setText(getText(R.string.NConect));
             }
         }else   if(v== findViewById(R.id.IB_Conf)){
             startActivity(new Intent(this,Confi.class));
@@ -100,37 +101,35 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         }else if(v== findViewById(R.id.BT_TMotor)){
             startActivity(new Intent(this,Motor.class));
         }else if (v == findViewById(R.id.BT_Sair)){
-            System.exit(0);
+            finish();
         }
      }
 
-    //////////////// WIFI CONNECT
-
+    //////////////// WIFI CONNECT //////////////////////////////////////////////////////////////////////////////////////////////////////////
     public  void chk(String Ssi, int i) {
 
         st = "";
+        wfm_Conect = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        if (wfm_Conect.getActiveNetworkInfo().getState().name().equals("CONNECTED") && i!=0){
         try {
-            Thread.sleep(2100);
-            if(wfm_Conect.getActiveNetworkInfo().getExtraInfo().equals(Ssi)) {
-                st = getString(R.string.Conect) + " to " + wfm.getConnectionInfo().getSSID() + " -";
-                stWF.setText(getString(R.string.bt_on));
-                stWF.setChecked(true);
-                t_text.setText(st);
-            }else{
-                wfm.setWifiEnabled(false);
-                Toast.makeText(getBaseContext(), "REDE ERRADA", Toast.LENGTH_SHORT).show();
-
+            Thread.sleep(2500);
+            if (wfm_Conect.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI && i != 0) {
+                if (wfm_Conect.getActiveNetworkInfo().getState().name().equals("CONNECTED") && wfm_Conect.getActiveNetworkInfo().getExtraInfo().equals(Ssi)) {
+                    st = getString(R.string.Conect) + " to " + wfm.getConnectionInfo().getSSID() + " -";
+                    tbWF.setText(getString(R.string.bt_on));
+                    tbWF.setBackgroundColor(ContextCompat.getColor(this, R.color.LightGreen));
+                    tbWF.setChecked(true);
+                    t_text.setText(st);
+                } else {
+                    wfm = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+                    wfm.setWifiEnabled(false);
+                    Toast.makeText(getBaseContext(), "REDE ERRADA", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                wfm = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        } else {
-            wfm.setWifiEnabled(false);
-            stWF.setText(getString(R.string.bt_off));
-            stWF.setChecked(false);
-            t_text.setText(getText(R.string.NConect));
+                e.printStackTrace();
         }
     }
 }
